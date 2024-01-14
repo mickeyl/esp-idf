@@ -37,6 +37,7 @@ void ulp_riscv_print_str(const char *str);
  * @param Hex number to print
  */
 void ulp_riscv_print_hex(int h);
+void ulp_riscv_print_hex_with_number_of_digits(int h, int number_of_digits);
 
 #ifdef __cplusplus
 }
