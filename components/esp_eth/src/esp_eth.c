@@ -269,7 +269,9 @@ esp_err_t esp_eth_driver_uninstall(esp_eth_handle_t hdl)
     vSemaphoreDelete(eth_driver->transmit_mutex);
 #endif // CONFIG_ETH_TRANSMIT_MUTEX
     ESP_GOTO_ON_ERROR(phy->deinit(phy), err, TAG, "deinit phy failed");
+    ESP_GOTO_ON_ERROR(phy->del(phy), err, TAG, "del phy failed");
     ESP_GOTO_ON_ERROR(mac->deinit(mac), err, TAG, "deinit mac failed");
+    ESP_GOTO_ON_ERROR(mac->del(mac), err, TAG, "del mac failed");
     free(eth_driver);
 err:
     return ret;
