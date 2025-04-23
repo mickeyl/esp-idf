@@ -305,4 +305,13 @@ menu "Example Ethernet Configuration"
             help
                 Set the second SPI Ethernet module PHY address according your board schematic.
     endif # EXAMPLE_USE_SPI_ETHERNET
+
+    if EXAMPLE_USE_INTERNAL_ETHERNET || EXAMPLE_USE_SPI_ETHERNET
+        config EXAMPLE_ETH_RX_TASK_STACK_SIZE
+            int "RX Task Stack Size"
+            default 4096
+            help
+                Set the RX task size.
+                Increase this value, if you have enabled debug logs.
+    endif # EXAMPLE_USE_INTERNAL_ETHERNET || EXAMPLE_USE_SPI_ETHERNET
 endmenu

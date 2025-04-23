@@ -65,6 +65,7 @@ static esp_eth_handle_t eth_init_internal(esp_eth_mac_t **mac_out, esp_eth_phy_t
 
     // Init common MAC and PHY configs to default
     eth_mac_config_t mac_config = ETH_MAC_DEFAULT_CONFIG();
+    mac_config.rx_task_stack_size = CONFIG_EXAMPLE_ETH_RX_TASK_STACK_SIZE;
     eth_phy_config_t phy_config = ETH_PHY_DEFAULT_CONFIG();
 
     // Update PHY config based on board specific configuration
@@ -179,6 +180,7 @@ static esp_eth_handle_t eth_init_spi(spi_eth_module_config_t *spi_eth_module_con
 
     // Init common MAC and PHY configs to default
     eth_mac_config_t mac_config = ETH_MAC_DEFAULT_CONFIG();
+    mac_config.rx_task_stack_size = CONFIG_EXAMPLE_ETH_RX_TASK_STACK_SIZE;
     eth_phy_config_t phy_config = ETH_PHY_DEFAULT_CONFIG();
 
     // Update PHY config based on board specific configuration
